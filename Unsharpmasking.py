@@ -3,8 +3,8 @@ from numpy import *
 from scipy.ndimage import filters
 from pylab import *
 
-figure(1)
 im = array(Image.open('test.jpg').convert('L'))
+figure(1)
 im1 = filters.gaussian_filter(im, 1.5)
 gray()
 im1 = im - im1
