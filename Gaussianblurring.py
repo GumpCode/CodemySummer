@@ -3,8 +3,8 @@ from numpy import *
 from scipy.ndimage import filters
 from pylab import *
 
-figure(1)
 im = array(Image.open('DSC_3655.JPG').convert('L'))
+figure(1)
 im1 = filters.gaussian_filter(im, 1.5)
 gray()
 contour(im1, origin = 'image')
