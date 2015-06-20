@@ -4,18 +4,18 @@ from scipy.ndimage import filters
 from pylab import *
 
 figure(1)
-im = array(Image.open('DSC_3655.JPG').convert('L'))
+im = array(Image.open('test.jpg').convert('L'))
 im1 = filters.gaussian_filter(im, 1.5)
 gray()
-contour(im1, origin = 'image')
+im1 = im - im1
 imshow(im1)
 axis('equal')
 axis('off')
 
 figure(2)
+im = array(Image.open('test.jpg'))
 im2 = filters.gaussian_filter(im, 4)
-gray()
-contour(im2, origin = 'image')
+im2 = im - im2
 imshow(im2)
 axis('equal')
 axis('off')
