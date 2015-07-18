@@ -63,7 +63,7 @@ def Haffine_from_points(fp, tp):
     B = tmp[:2]
     C = tmp[2:4]
 
-    tmp2 = concatenate((dot(c, linalg.pinv(B)), zeros((2,1))), axis=1)
+    tmp2 = concatenate((dot(C, linalg.pinv(B)), zeros((2,1))), axis=1)
     H = vstack((tmp2, [0,0,1]))
 
     H = dot(linalg.inv(C2), dot(H, C1))
@@ -76,7 +76,7 @@ im = array(Image.open('test.jpg').convert('L'))
 H = array([[1.4, 0.05, -100], [0.05, 1.5, -100], [0, 0, 1]])
 im2 = ndimage.affine_transform(im, H[:2,:2], (H[0,2], H[1,2]))
 
-figure()
-gray()
-imshow(im2)
-show()
+#figure()
+#gray()
+#imshow(im2)
+#show()
