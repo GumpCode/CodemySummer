@@ -5,7 +5,6 @@ import glob
 objp = np.zeros((5*9,3), np.float32)
 objp[:,:2] = np.mgrid[0:9, 0:5].T.reshape(-1,2)
 
-print objp
 objpoints = []
 imgpoints = []
 
@@ -26,4 +25,5 @@ for fname in images:
         cv2.waitKey(5000)
         ret, mtx, dist, rvecs, tvecs = cv2.calibrateCamera(objpoints, imgpoints, gray.shape[::-1], None, None)
 
+print mtx
 cv2.destroyAllWindows()
