@@ -36,3 +36,11 @@ def factor(self):
     self.t = dot(linalg.inv(self.K), self.P[:,:3])
 
     return self.K, self.R, self.t
+
+def center(self):
+    if self.c is not None:
+        return self.c
+    else:
+        self.factor()
+        self.c = -dot(self.R.T, self.t)
+        return self.c
